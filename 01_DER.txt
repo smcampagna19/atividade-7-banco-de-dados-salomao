@@ -1,0 +1,50 @@
+DER - AUTOTECHNOLOGY EXPRESS
+
+[CLIENTE]
+PK  id_cliente
+    nome
+    cpf
+    telefone
+    email
+    endereco
+    cidade
+
+[VEICULO]
+PK  id_veiculo
+FK  id_cliente
+    placa
+    marca
+    modelo
+    ano_fabricacao
+    chassi
+
+[MECANICO]
+PK  id_mecanico
+    nome
+    cpf
+    telefone
+    email
+    data_contratacao
+    funcao
+
+[ORDEM_SERVICO]
+PK  id_ordem
+FK  id_veiculo
+FK  id_mecanico
+    data_abertura
+    estimativa_entrega
+    descricao
+    valor_total
+    status
+
+Cardinalidades:
+CLIENTE (1) ------ (N) VEICULO
+VEICULO (1) ------ (N) ORDEM_SERVICO
+MECANICO (1) ----- (N) ORDEM_SERVICO
+
+Montagem no draw.io:
+Crie um retângulo para cada uma das quatro entidades e liste seus campos.
+Identifique as chaves com PK e FK. Depois, use conectores entre as entidades.
+Na ligação CLIENTE-VEICULO, marque 1 perto de CLIENTE e N perto de VEICULO.
+Nas outras ligações, deixe 1 perto de VEICULO e MECANICO e N perto de ORDEM_SERVICO.
+
